@@ -15,7 +15,7 @@ namespace FilmReview.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "About FilmReview page.";
+            ViewBag.Message = "Your application description page.";
 
             return View();
         }

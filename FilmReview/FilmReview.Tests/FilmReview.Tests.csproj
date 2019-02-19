@@ -6,7 +6,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{39E8ECA9-E503-4B76-B43C-6375FE8EBB63}</ProjectGuid>
+    <ProjectGuid>{110D590C-EA1E-422C-A20B-E71FF44B6FE5}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>FilmReview.Tests</RootNamespace>
@@ -100,7 +100,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FilmReview\FilmReview.csproj">
-      <Project>{5DB595A0-8E5F-406C-AC0D-969F3FB55D67}</Project>
+      <Project>{C956559F-027E-4309-BAC3-4A7A5BF0599D}</Project>
       <Name>FilmReview</Name>
     </ProjectReference>
   </ItemGroup>
