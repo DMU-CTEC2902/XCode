@@ -43,7 +43,7 @@ namespace FilmReview.Models
             Gen5.Name = "Fantasy";
             Gen5.Description = "Magical and exotic fantasy worlds";
             context.Genres.Add(Gen5);
-
+            //hello?
             Film film1 = new Film();
             film1.FilmId = 1;
             film1.GenreId = 1;
