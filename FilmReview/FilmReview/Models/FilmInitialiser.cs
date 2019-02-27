@@ -37,7 +37,7 @@ namespace FilmReview.Models
             Gen4.Description = "Space oriented and adnvanced science";
             context.Genres.Add(Gen4);
           
-
+            //aa
             Genre Gen5 = new Genre();
             Gen5.GenreId = 5;
             Gen5.Name = "Fantasy";
