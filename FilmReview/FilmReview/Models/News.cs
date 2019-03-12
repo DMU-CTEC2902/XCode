@@ -8,7 +8,9 @@ namespace FilmReview.Models
     public class News
     {
         // News properties
-        public int Id { get; set; }
+        public int NewsID { get; set; }
         public string Title { get; set; }
+        public string Subtitle { get; set; }
+        public string Story { get; set; }
     }
 }
