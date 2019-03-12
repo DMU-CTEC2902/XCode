@@ -21,5 +21,7 @@ namespace FilmReview.Models
         }
 
         public DbSet<News> News { get; set; }
+
+
     }
 }
