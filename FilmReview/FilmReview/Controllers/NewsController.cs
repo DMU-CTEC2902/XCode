@@ -17,7 +17,7 @@ namespace FilmReview.Controllers
         // GET: News
         public ActionResult Index()
         {
-            return View(db.News.ToList());
+            return View(db.News.OrderByDescending(x => x.Date).ToList());
         }
 
         // GET: News/Details/5
