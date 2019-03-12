@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
+using FilmReview.Models;
 
 namespace FilmReview.Models
 {
@@ -19,6 +20,6 @@ namespace FilmReview.Models
         {
         }
 
-        public System.Data.Entity.DbSet<FilmReview.Models.News> News { get; set; }
+        public DbSet<News> News { get; set; }
     }
 }

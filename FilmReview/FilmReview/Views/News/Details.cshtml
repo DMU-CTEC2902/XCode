@@ -18,9 +18,33 @@
             @Html.DisplayFor(model => model.Title)
         </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.Subtitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Subtitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Story)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Story)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.NewsID }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

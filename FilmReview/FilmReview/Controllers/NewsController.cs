@@ -46,7 +46,7 @@ namespace FilmReview.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Title")] News news)
+        public ActionResult Create([Bind(Include = "NewsID,Title,Subtitle,Story,Date")] News news)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +78,7 @@ namespace FilmReview.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Title")] News news)
+        public ActionResult Edit([Bind(Include = "NewsID,Title,Subtitle,Story,Date")] News news)
         {
             if (ModelState.IsValid)
             {

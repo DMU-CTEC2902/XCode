@@ -12,5 +12,6 @@ namespace FilmReview.Models
         public string Title { get; set; }
         public string Subtitle { get; set; }
         public string Story { get; set; }
+        public DateTime Date { get; set; }
     }
 }
