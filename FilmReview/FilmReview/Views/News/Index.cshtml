@@ -20,20 +20,24 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+    @foreach (var item in Model)
+    {
     <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
+        <td width="70%">
+            <a href="~/News/Details/@item.NewsID">
+                <b>@Html.DisplayFor(modelItem => item.Title)</b>
+            </a>
+            <br />
+            @Html.DisplayFor(modelItem => item.Subtitle)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Date)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.NewsID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.NewsID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.NewsID })
+            @Html.ActionLink("Edit", "Edit", new { id = item.NewsID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.NewsID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.NewsID })
         </td>
     </tr>
-}
-
+    }
 </table>
