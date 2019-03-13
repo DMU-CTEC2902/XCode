@@ -13,7 +13,7 @@
         <th>@Html.DisplayNameFor(model => model.FilmName)</th>
         <th>@Html.DisplayNameFor(model => model.Genre.Name)</th>
     </tr>
-    @foreach (var item in Model)
+    @foreach (var item in Model.Take(10))
     {
         <tr>
             <td>@Html.DisplayFor(modelItem => item.Rating)</td>
