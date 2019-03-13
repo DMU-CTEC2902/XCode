@@ -18,7 +18,7 @@
         <h3 style="font-weight:bold;">@Html.DisplayFor(modelItem => item.Title)</h3>
         <h4 style="color:#1818f3;">@Html.DisplayFor(modelItem => item.Date)</h4>
         <p>@Html.DisplayFor(modelItem => item.Subtitle)</p>
-        <p>@Html.ActionLink("Read story", "Details", "News", new { id = item.NewsID }, new { @class = "btn btn-default" })</p>
+        <p>@Html.ActionLink("Read story", "Story", "News", new { id = item.NewsID }, new { @class = "btn btn-default" })</p>
     </div>
     }
 </div>
