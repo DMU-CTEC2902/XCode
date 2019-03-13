@@ -48,12 +48,19 @@ namespace FilmReview.Models
             film1.FilmId = 1;
             film1.GenreId = 1;
             film1.FilmName = "Bad boys 2";
-            film1.Rating = 9;
+            film1.Rating = 8;
             film1.Description = "A very good movie!";
             film1.Genre = Gen1;
             context.Films.Add(film1);
             //ssdfsdfdsf
-        
+            Film film2 = new Film();
+            film2.FilmId = 2;
+            film2.GenreId = 1;
+            film2.FilmName = "Bad boys 1";
+            film2.Rating = 9;
+            film2.Description = "A good movie!";
+            film2.Genre = Gen1;
+            context.Films.Add(film2);
             base.Seed(context);
 
         }
