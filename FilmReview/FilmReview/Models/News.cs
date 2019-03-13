@@ -20,8 +20,8 @@ namespace FilmReview.Models
         [DataType(DataType.MultilineText)]
         public string Story { get; set; }
 
-        [DataType(DataType.Date)]
         [Required]
+        [DataType(DataType.Date)]
         public DateTime Date { get; set; }
     }
 }

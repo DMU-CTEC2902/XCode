@@ -213,6 +213,7 @@
     <Compile Include="Models\News.cs" />
     <Compile Include="Models\NewsContext.cs" />
     <Compile Include="Models\NewsDataInitialiser.cs" />
+    <Compile Include="Models\Review.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
