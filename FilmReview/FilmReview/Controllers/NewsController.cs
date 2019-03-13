@@ -20,8 +20,8 @@ namespace FilmReview.Controllers
             return View(db.News.OrderByDescending(x => x.Date).ToList());
         }
 
-        // GET: News/Details/5
-        public ActionResult Details(int? id)
+        // GET: News/Story/5
+        public ActionResult Story(int? id)
         {
             if (id == null)
             {

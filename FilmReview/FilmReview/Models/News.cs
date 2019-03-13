@@ -17,6 +17,7 @@ namespace FilmReview.Models
         public string Subtitle { get; set; }
 
         [Required]
+        [DataType(DataType.MultilineText)]
         public string Story { get; set; }
 
         [DataType(DataType.Date)]
