@@ -21,8 +21,8 @@ namespace FilmReview.Controllers
             return View(films.ToList());
         }
 
-        // GET: Films/Details
-        public ActionResult Details(int? id)
+        // GET: Films/Title
+        public ActionResult Title(int? id)
         {
             if (id == null)
             {
@@ -41,10 +41,10 @@ namespace FilmReview.Controllers
             return View(film);
         }
 
-        // POST: Films/Details
+        // POST: Films/Title
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Details()
+        public ActionResult Title()
         {
             if (ModelState.IsValid)
             {
@@ -60,7 +60,7 @@ namespace FilmReview.Controllers
 
                 db.Reviews.Add(review);
                 db.SaveChanges();
-                RedirectToAction("Details");
+                RedirectToAction("Title");
             }
 
             int? id = Convert.ToInt32(Request.Params["FilmId"]);
