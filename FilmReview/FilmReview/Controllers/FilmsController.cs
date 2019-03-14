@@ -43,22 +43,27 @@ namespace FilmReview.Controllers
 
         // POST: Films/Details
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Details()
         {
-            // Temporary
+            if (ModelState.IsValid)
+            {
+                // Temporary
+                int? filmid = Convert.ToInt32(Request.Params["FilmId"]);
+                Review review = new Review();
+                review.Description = Request.Params["Review"];
+                review.DateAdded = DateTime.Now;
+                review.FilmId = Convert.ToInt32(filmid);
+                // Temporary
+                review.Rating = 0;
+                //review.UserID = 0;
+
+                db.Reviews.Add(review);
+                db.SaveChanges();
+                RedirectToAction("Details");
+            }
+
             int? id = Convert.ToInt32(Request.Params["FilmId"]);
-            Review review = new Review();
-            review.Description = Request.Params["Review"];
-            review.DateAdded = DateTime.Now;
-            review.FilmId = Convert.ToInt32(id);
-            // temporary
-            review.Rating = 0;
-            //review.UserID = 0;
-
-            db.Reviews.Add(review);
-            db.SaveChanges();
-            RedirectToAction("Details");
-
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
