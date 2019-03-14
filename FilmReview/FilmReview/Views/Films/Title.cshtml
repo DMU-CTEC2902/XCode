@@ -13,71 +13,53 @@
 </head>
 <body>
     <div>
-        <h4>Film</h4>
+        <br />
+        <h3 style="font-weight:bold;">@Html.DisplayFor(model => model.FilmName)</h3>
+        <h4>@Html.DisplayNameFor(model => model.Rating) <span class="label label-primary">@Html.DisplayFor(model => model.Rating)</span></h4>
+        <p></p>
+
         <hr />
-        <dl class="dl-horizontal">
-            <dt>
-                @Html.DisplayNameFor(model => model.Genre.Name)
-            </dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.Genre.Name)
-            </dd>
+        @Html.DisplayNameFor(model => model.Genre.Name)
+        <br />
+        @Html.DisplayFor(model => model.Genre.Name)
+        <br />
+        <br />
+        @Html.DisplayNameFor(model => model.Description)
+        <br />
+        @Html.DisplayFor(model => model.Description)
+        <br />
+        <br />
 
-            <dt>
-                @Html.DisplayNameFor(model => model.FilmName)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.FilmName)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.Rating)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Rating)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.Description)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Description)
-            </dd>
-
-            <dt>
-                Reviews
-            </dt>
-
-            @if (Model.Review.Count == 0)
-            {
-                <dd>
-                    Be the first one to review!
-                </dd>
-            }
-
-            @foreach (var item in Model.Review)
-            {
-                <dd>
-                    @Html.DisplayFor(model => item.Description)
-                    (@Html.DisplayFor(model => item.DateAdded))
-                </dd>
-            }
-
-            <dd>
+        <div class="panel panel-default">
+            <div class="panel-heading">Reviews</div>
+            <div class="panel-body">
                 @using (Html.BeginForm())
                 {
                     @Html.AntiForgeryToken()
-                    @Html.TextBoxFor(model => model.FilmId, new { style = "display: none;" })
-                    @Html.TextArea("Review", "")
-                    <br />
-                    <input type="submit" value="Review" />
+                    <div class="form-group">
+                        <label for="comment">Add a review:</label>
+                        @Html.TextBoxFor(model => model.FilmId, new { style = "display: none;" })
+                        @Html.TextArea("Review", "", new { @class = "form-control", @rows = "5" })
+                        <br />
+                        <input type="submit" class="btn btn-primary" value="Review">
+                    </div>
                 }
-            </dd>
-        </dl>
+                <br />
+                <label for="comment">Reviews:</label>
+                <ul class="list-group">
+                    @if (Model.Review.Count == 0)
+                    {
+                        <li class="list-group-item">Be the first one to review!</li>
+                    }
+                    @foreach (var item in Model.Review)
+                    {
+                        <li class="list-group-item">@Html.DisplayFor(model => item.Description) (@Html.DisplayFor(model => item.DateAdded))</li>
+                    }
+                </ul>
+            </div>
+        </div>
+
     </div>
     <p>
         @Html.ActionLink("Edit", "Edit", new { id = Model.FilmId }) |
