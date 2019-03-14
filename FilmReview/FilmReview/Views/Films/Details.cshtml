@@ -66,6 +66,16 @@
                     (@Html.DisplayFor(model => item.DateAdded))
                 </dd>
             }
+
+            <dd>
+                @using (Html.BeginForm())
+                {
+                    @Html.TextBoxFor(model => model.FilmId, new { style = "display: none;" })
+                    @Html.TextArea("Review", "")
+                    <br />
+                    <input type="submit" value="Review" />
+                }
+            </dd>
         </dl>
     </div>
     <p>

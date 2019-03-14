@@ -21,14 +21,49 @@ namespace FilmReview.Controllers
             return View(films.ToList());
         }
 
-        // GET: Films/Details/5
+        // GET: Films/Details
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            
+
+            List<Review> lstReviews = db.Reviews
+                .Where(r => r.FilmId == id)
+                .OrderByDescending(x => x.DateAdded).ToList();
+
+            Film film = db.Films.Find(id);
+            if (film == null)
+            {
+                return HttpNotFound();
+            }
+            return View(film);
+        }
+
+        // POST: Films/Details
+        [HttpPost]
+        public ActionResult Details()
+        {
+            // Temporary
+            int? id = Convert.ToInt32(Request.Params["FilmId"]);
+            Review review = new Review();
+            review.Description = Request.Params["Review"];
+            review.DateAdded = DateTime.Now;
+            review.FilmId = Convert.ToInt32(id);
+            // temporary
+            review.Rating = 0;
+            //review.UserID = 0;
+
+            db.Reviews.Add(review);
+            db.SaveChanges();
+            RedirectToAction("Details");
+
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
             List<Review> lstReviews = db.Reviews
                 .Where(r => r.FilmId == id)
                 .OrderByDescending(x => x.DateAdded).ToList();
