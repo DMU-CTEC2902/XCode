@@ -18,5 +18,7 @@ namespace FilmReview.Models
         public virtual string Description { get; set; }
 
         public virtual Genre Genre { get; set; }
+
+        public virtual List<Review> Review { get; set; }
     }
 }

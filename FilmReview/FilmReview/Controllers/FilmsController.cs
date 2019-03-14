@@ -13,7 +13,7 @@ namespace FilmReview.Controllers
     public class FilmsController : Controller
     {
         private FilmContext db = new FilmContext();
-        //aaa
+
         // GET: Films
         public ActionResult Index()
         {
@@ -28,6 +28,11 @@ namespace FilmReview.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            
+            List<Review> lstReviews = db.Reviews
+                .Where(r => r.FilmId == id)
+                .OrderByDescending(x => x.DateAdded).ToList();
+
             Film film = db.Films.Find(id);
             if (film == null)
             {
