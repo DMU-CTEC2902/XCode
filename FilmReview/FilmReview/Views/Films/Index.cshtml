@@ -50,12 +50,11 @@
                 </td>
                 <td>
                     @Html.ActionLink("Edit", "Edit", new { id = item.FilmId }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.FilmId }) |
+                    @Html.ActionLink("Details", "Title", new { id = item.FilmId }) |
                     @Html.ActionLink("Delete", "Delete", new { id = item.FilmId })
                 </td>
             </tr>
         }
-
     </table>
 </body>
 </html>

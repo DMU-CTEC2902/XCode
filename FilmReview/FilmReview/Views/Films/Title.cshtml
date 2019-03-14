@@ -9,7 +9,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Details</title>
+    <title>Title</title>
 </head>
 <body>
     <div>
@@ -19,35 +19,64 @@
             <dt>
                 @Html.DisplayNameFor(model => model.Genre.Name)
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.Genre.Name)
             </dd>
-    
+
             <dt>
                 @Html.DisplayNameFor(model => model.FilmName)
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.FilmName)
             </dd>
-    
+
             <dt>
                 @Html.DisplayNameFor(model => model.Rating)
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.Rating)
             </dd>
-    
+
             <dt>
                 @Html.DisplayNameFor(model => model.Description)
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.Description)
             </dd>
-    
+
+            <dt>
+                Reviews
+            </dt>
+
+            @if (Model.Review.Count == 0)
+            {
+                <dd>
+                    Be the first one to review!
+                </dd>
+            }
+
+            @foreach (var item in Model.Review)
+            {
+                <dd>
+                    @Html.DisplayFor(model => item.Description)
+                    (@Html.DisplayFor(model => item.DateAdded))
+                </dd>
+            }
+
+            <dd>
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.TextBoxFor(model => model.FilmId, new { style = "display: none;" })
+                    @Html.TextArea("Review", "")
+                    <br />
+                    <input type="submit" value="Review" />
+                }
+            </dd>
         </dl>
     </div>
     <p>

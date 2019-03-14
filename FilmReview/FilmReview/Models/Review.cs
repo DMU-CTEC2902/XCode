@@ -9,9 +9,9 @@ namespace FilmReview.Models
     {
         public virtual int ReviewId { get; set; }
         public virtual int FilmId { get; set; }
+        public virtual DateTime DateAdded { get; set; }
         public virtual decimal Rating { get; set; }
         public virtual string Description { get; set; }
-        public virtual Film Film { get; set; }
         //userid to do
     }
 }
