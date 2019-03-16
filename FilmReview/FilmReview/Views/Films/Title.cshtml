@@ -20,6 +20,10 @@
         <br />
         <h3 style="font-weight:bold;">@Html.DisplayFor(model => model.FilmName)</h3>
         <h4>@Html.DisplayNameFor(model => model.Rating) <span class="label label-primary">★ @Html.DisplayFor(model => model.Rating)</span></h4>
+        <p>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.FilmId }) |
+            @Html.ActionLink("Back to List", "Index")
+        </p>
         <hr />
         <b>@Html.DisplayNameFor(model => model.Genre.Name)</b>
         <br />
@@ -70,9 +74,5 @@
             </div>
         </div>
     </div>
-    <p>
-        @Html.ActionLink("Edit", "Edit", new { id = Model.FilmId }) |
-        @Html.ActionLink("Back to List", "Index")
-    </p>
 </body>
 </html>
