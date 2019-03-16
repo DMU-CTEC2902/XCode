@@ -6,7 +6,7 @@ using System.Data.Entity;
 
 namespace FilmReview.Models
 {
-    public class FilmInitialiser: DropCreateDatabaseAlways<FilmContext>
+    public class FilmInitialiser : DropCreateDatabaseAlways<FilmContext>
     {
         protected override void Seed(FilmContext context)
         {
@@ -16,25 +16,25 @@ namespace FilmReview.Models
             Gen1.Name = "Action";
             Gen1.Description = "Action oriented movie";
             context.Genres.Add(Gen1);
-            
+
             Genre Gen2 = new Genre();
             Gen2.GenreId = 2;
             Gen2.Name = "Horror";
             Gen2.Description = "Scary movies";
             context.Genres.Add(Gen2);
-           
+
             Genre Gen3 = new Genre();
             Gen3.GenreId = 3;
             Gen3.Name = "Romance";
             Gen3.Description = "Romantic movies";
             context.Genres.Add(Gen3);
-            
+
             Genre Gen4 = new Genre();
             Gen4.GenreId = 4;
             Gen4.Name = "Sci-fi";
             Gen4.Description = "Space oriented and adnvanced science";
             context.Genres.Add(Gen4);
-          
+
             Genre Gen5 = new Genre();
             Gen5.GenreId = 5;
             Gen5.Name = "Fantasy";
@@ -45,16 +45,16 @@ namespace FilmReview.Models
             Film film1 = new Film();
             film1.FilmId = 1;
             film1.GenreId = 1;
-            film1.FilmName = "Bad boys 2";
+            film1.FilmName = "Bad Boys II";
             film1.Rating = 4.67M;
-            film1.Description = "A very good movie!";
+            film1.Description = "Narcotics cops Mike Lowrey (Will Smith) and Marcus Burnett (Martin Lawrence) head up a task force investigating the flow of ecstasy into Miami. Their search leads to a dangerous kingpin Johnny Tapia (Jordi Mollà), whose plan to control the city's drug traffic has touched off an underground war. Meanwhile, things get sexy between Mike and Syd (Gabrielle Union), Marcus's sister.";
             film1.Genre = Gen1;
             context.Films.Add(film1);
 
             Film film2 = new Film();
             film2.FilmId = 2;
             film2.GenreId = 1;
-            film2.FilmName = "Bad boys 1";
+            film2.FilmName = "Bad Boys";
             film2.Rating = 0;
             film2.Description = "A good movie!";
             film2.Genre = Gen1;

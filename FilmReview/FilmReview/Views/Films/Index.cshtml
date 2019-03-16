@@ -14,21 +14,18 @@
 <body>
     <h2>Films</h2>
     <p>
-        @Html.ActionLink("Create New", "Create")
+        @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-default" })
     </p>
-    <table class="table">
+    <table class="table table-hover">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Genre.Name)
+                @Html.DisplayNameFor(model => model.Rating)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.FilmName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Rating)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Description)
+                @Html.DisplayNameFor(model => model.Genre.Name)
             </th>
             <th></th>
         </tr>
@@ -37,20 +34,20 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Genre.Name)
+                    <span class="label label-primary">★ @Html.DisplayFor(modelItem => item.Rating)</span>
                 </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.FilmName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Rating)
-                </td>
-                <td>
+                <td width="75%">
+                    <a href="~/Films/Title/@item.FilmId">
+                        <b>@Html.DisplayFor(modelItem => item.FilmName)</b>
+                    </a>
+                    <br />
                     @Html.DisplayFor(modelItem => item.Description)
                 </td>
                 <td>
+                    @Html.DisplayFor(modelItem => item.Genre.Name)
+                </td>
+                <td>
                     @Html.ActionLink("Edit", "Edit", new { id = item.FilmId }) |
-                    @Html.ActionLink("Details", "Title", new { id = item.FilmId }) |
                     @Html.ActionLink("Delete", "Delete", new { id = item.FilmId })
                 </td>
             </tr>

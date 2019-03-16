@@ -14,6 +14,7 @@ namespace FilmReview.Models
         public virtual int GenreId { get; set; }
 
         [Required]
+        [Display(Name = "Film Name")]
         public virtual string FilmName { get; set; }
 
         public virtual decimal Rating { get; set; }

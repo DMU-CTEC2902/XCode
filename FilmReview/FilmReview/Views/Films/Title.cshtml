@@ -20,16 +20,13 @@
         <br />
         <h3 style="font-weight:bold;">@Html.DisplayFor(model => model.FilmName)</h3>
         <h4>@Html.DisplayNameFor(model => model.Rating) <span class="label label-primary">★ @Html.DisplayFor(model => model.Rating)</span></h4>
-        <p></p>
-
         <hr />
-
-        @Html.DisplayNameFor(model => model.Genre.Name)
+        <b>@Html.DisplayNameFor(model => model.Genre.Name)</b>
         <br />
         @Html.DisplayFor(model => model.Genre.Name)
         <br />
         <br />
-        @Html.DisplayNameFor(model => model.Description)
+        <b>@Html.DisplayNameFor(model => model.Description)</b>
         <br />
         @Html.DisplayFor(model => model.Description)
         <br />
