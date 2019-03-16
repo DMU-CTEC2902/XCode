@@ -88,6 +88,15 @@ namespace FilmReview.Models
             review3.Description = "Bads.";
             context.Reviews.Add(review3);
 
+            Review review4 = new Review();
+            review4.ReviewId = 4;
+            review4.FilmId = 2;
+            // Month/Day/Year | Hour/Minute/Second (24-hour clock)
+            review4.DateAdded = Convert.ToDateTime("3/13/2009 17:02:12");
+            review4.ReviewRating = 8;
+            review4.Description = "Fine.";
+            context.Reviews.Add(review4);
+
             // Seed
             base.Seed(context);
         }
