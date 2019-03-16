@@ -150,7 +150,7 @@ namespace FilmReview.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "FilmId,GenreId,FilmName,Rating,Description")] Film film)
+        public ActionResult Create([Bind(Include = "FilmId,GenreId,FilmName,Description")] Film film)
         {
             if (ModelState.IsValid)
             {
