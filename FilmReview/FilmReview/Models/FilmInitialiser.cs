@@ -55,7 +55,7 @@ namespace FilmReview.Models
             film2.FilmId = 2;
             film2.GenreId = 1;
             film2.FilmName = "Bad Boys";
-            film2.Rating = 0;
+            film2.Rating = 8.00M;
             film2.Description = "A good movie!";
             film2.Genre = Gen1;
             context.Films.Add(film2);
@@ -96,6 +96,33 @@ namespace FilmReview.Models
             review4.ReviewRating = 8;
             review4.Description = "Fine.";
             context.Reviews.Add(review4);
+
+            Review review5 = new Review();
+            review5.ReviewId = 4;
+            review5.FilmId = 2;
+            // Month/Day/Year | Hour/Minute/Second (24-hour clock)
+            review5.DateAdded = Convert.ToDateTime("3/13/2009 17:02:12");
+            review5.ReviewRating = 9;
+            review5.Description = "Fines.";
+            context.Reviews.Add(review5);
+
+            Review review6 = new Review();
+            review6.ReviewId = 5;
+            review6.FilmId = 2;
+            // Month/Day/Year | Hour/Minute/Second (24-hour clock)
+            review6.DateAdded = Convert.ToDateTime("3/13/2009 17:02:12");
+            review6.ReviewRating = 10;
+            review6.Description = "Fines.";
+            context.Reviews.Add(review6);
+
+            Review review7 = new Review();
+            review7.ReviewId = 6;
+            review7.FilmId = 2;
+            // Month/Day/Year | Hour/Minute/Second (24-hour clock)
+            review7.DateAdded = Convert.ToDateTime("3/13/2009 17:02:12");
+            review7.ReviewRating = 5;
+            review7.Description = "Fines.";
+            context.Reviews.Add(review7);
 
             // Seed
             base.Seed(context);
