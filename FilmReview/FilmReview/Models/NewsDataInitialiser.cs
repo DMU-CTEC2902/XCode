@@ -10,6 +10,7 @@ namespace FilmReview.Models
     {
         protected override void Seed(NewsContext context)
         {
+            // News
             News news1 = new News();
             news1.NewsID = 1;
             news1.Title = "Bohemian Rhapsody Sequel Being Discussed";
@@ -42,6 +43,7 @@ namespace FilmReview.Models
             news4.Date = Convert.ToDateTime("3/10/2019");
             context.News.Add(news4);
 
+            // Seed
             base.Seed(context);
         }
     }
