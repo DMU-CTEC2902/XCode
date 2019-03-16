@@ -1,15 +1,14 @@
 ﻿@model IEnumerable<FilmReview.Models.News>
-
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "News";
 }
 
 <h2>News</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-default" })
 </p>
-<table class="table">
+<table class="table table-hover">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Title)
@@ -22,21 +21,21 @@
 
     @foreach (var item in Model)
     {
-    <tr>
-        <td width="75%">
-            <a href="~/News/Story/@item.NewsID">
-                <b>@Html.DisplayFor(modelItem => item.Title)</b>
-            </a>
-            <br />
-            @Html.DisplayFor(modelItem => item.Subtitle)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Date)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.NewsID }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.NewsID })
-        </td>
-    </tr>
+        <tr>
+            <td width="75%">
+                <a href="~/News/Story/@item.NewsID">
+                    <b>@Html.DisplayFor(modelItem => item.Title)</b>
+                </a>
+                <br />
+                @Html.DisplayFor(modelItem => item.Subtitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.NewsID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.NewsID })
+            </td>
+        </tr>
     }
 </table>

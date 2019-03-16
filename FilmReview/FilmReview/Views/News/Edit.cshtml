@@ -1,7 +1,6 @@
 ﻿@model FilmReview.Models.News
-
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Edit News";
 }
 
 <h2>Edit</h2>
@@ -35,7 +34,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Story, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Story, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Story, new { htmlAttributes = new { @class = "form-control", @rows = "12" } })
                 @Html.ValidationMessageFor(model => model.Story, "", new { @class = "text-danger" })
             </div>
         </div>

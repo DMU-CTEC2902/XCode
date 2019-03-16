@@ -8,12 +8,13 @@ namespace FilmReview.Models
 {
     public class News
     {
-        // News properties
+        [Key]
         public int NewsID { get; set; }
 
         [Required]
         public string Title { get; set; }
 
+        [Required]
         public string Subtitle { get; set; }
 
         [Required]

@@ -46,29 +46,86 @@ namespace FilmReview.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Title()
         {
-            if (ModelState.IsValid)
-            {
-                // Temporary
-                int? filmid = Convert.ToInt32(Request.Params["FilmId"]);
-                Review review = new Review();
-                review.Description = Request.Params["Review"];
-                review.DateAdded = DateTime.Now;
-                review.FilmId = Convert.ToInt32(filmid);
-                // Temporary
-                review.Rating = 0;
-                //review.UserID = 0;
-
-                db.Reviews.Add(review);
-                db.SaveChanges();
-                RedirectToAction("Title");
-            }
-
-            int? id = Convert.ToInt32(Request.Params["FilmId"]);
+            // Get the film id from a form
+            int? id = Convert.ToInt32(Request.Form["FilmId"]);
+            // If it doesn't exist
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
+            // Proceed only if there are no issues with the data posted
+            if (ModelState.IsValid)
+            {
+                // New instance of Review class
+                Review review = new Review();
+                // Add the review description from a form
+                review.Description = Request.Form["Review"];
+                // Add the current date and time for a review
+                review.DateAdded = DateTime.Now;
+                // Add the film id that this review is related to
+                review.FilmId = Convert.ToInt32(id);
+
+                // Return any stars that was selected
+                string temprating = Convert.ToString(Request.Form["rated"]);
+                // Proceed only if there was a star selected
+                if (temprating != ",,,,,,,,,")
+                {
+                    // Get the rating from the star that was selected
+                    review.ReviewRating = Convert.ToDecimal(temprating.Split(',')[0]);
+                    // Proceed only if there are no issues with the data posted
+                    if (ModelState.IsValid)
+                    {
+                        // Find a film in the database
+                        var FilmAfter = db.Films.Find(id);
+                        // If it doesn't exist
+                        if (FilmAfter == null)
+                        {
+                            return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                        }
+
+                        // Get the whole list of ratings for this movie
+                        decimal[] AllReviews = db.Reviews.Where(r => r.FilmId == id).Select(x => x.ReviewRating).ToArray();
+                        // Get the count of ratings for this movie
+                        int ReviewCount = AllReviews.Length;
+                        // Group them by rating and rating count
+                        Dictionary<decimal, int> Ratings = AllReviews.GroupBy(x => x).ToDictionary(g => g.Key, g => g.Count());
+
+                        // Weighted average calculation (includes the current rating)
+                        decimal y = 0;
+                        decimal p = review.ReviewRating;
+                        foreach (var item in Ratings)
+                        {
+                            if (item.Key == review.ReviewRating)
+                            {
+                                decimal temporary = item.Value + 1;
+                                decimal x = (item.Key) * temporary;
+                                p = x;
+                            }
+                            else
+                            {
+                                decimal x = (item.Key) * (item.Value);
+                                y += x;
+                            }
+                        }
+
+                        // Adding p and +1 means it includes the current rating
+                        FilmAfter.Rating = (y + p) / (ReviewCount + 1);
+                        // Add only the calculated rating into the film table
+                        db.Entry(FilmAfter).CurrentValues.SetValues(FilmAfter);
+                        // Save changes
+                        db.SaveChanges();
+                    }
+                }
+                // Add the review with the amount of stars given to a movie
+                db.Reviews.Add(review);
+                // Save changes
+                db.SaveChanges();
+                // Redirect to the film page to see the updates
+                RedirectToAction("Title");
+            }
+
+            // Get the list of reviews for the movie and order it by date
             List<Review> lstReviews = db.Reviews
                 .Where(r => r.FilmId == id)
                 .OrderByDescending(x => x.DateAdded).ToList();
@@ -93,7 +150,7 @@ namespace FilmReview.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "FilmId,GenreId,FilmName,Rating,Description")] Film film)
+        public ActionResult Create([Bind(Include = "FilmId,GenreId,FilmName,Description")] Film film)
         {
             if (ModelState.IsValid)
             {
@@ -127,11 +184,20 @@ namespace FilmReview.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "FilmId,GenreId,FilmName,Rating,Description")] Film film)
+        public ActionResult Edit(Film film)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(film).State = EntityState.Modified;
+                var dbFilms = db.Films.FirstOrDefault(p => p.FilmId == film.FilmId);
+                if (dbFilms == null)
+                {
+                    return HttpNotFound();
+                }
+
+                dbFilms.Description = film.Description;
+                dbFilms.FilmName = film.FilmName;
+                dbFilms.GenreId = film.GenreId;
+                dbFilms.Review = film.Review;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

@@ -1,7 +1,10 @@
 ﻿@model FilmReview.Models.Film
-
+@section Scripts {
+    <script src="~/Scripts/rating.js"></script>
+}
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Film";
 }
 
 <!DOCTYPE html>
@@ -9,23 +12,25 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Title</title>
+    <title>Film</title>
+    <script src="~/Scripts/rating.js"></script>
 </head>
 <body>
     <div>
         <br />
         <h3 style="font-weight:bold;">@Html.DisplayFor(model => model.FilmName)</h3>
-        <h4>@Html.DisplayNameFor(model => model.Rating) <span class="label label-primary">@Html.DisplayFor(model => model.Rating)</span></h4>
-        <p></p>
-
+        <h4>@Html.DisplayNameFor(model => model.Rating) <span class="label label-primary">★ @Html.DisplayFor(model => model.Rating)</span></h4>
+        <p>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.FilmId }) |
+            @Html.ActionLink("Back to List", "Index")
+        </p>
         <hr />
-
-        @Html.DisplayNameFor(model => model.Genre.Name)
+        <b>@Html.DisplayNameFor(model => model.Genre.Name)</b>
         <br />
         @Html.DisplayFor(model => model.Genre.Name)
         <br />
         <br />
-        @Html.DisplayNameFor(model => model.Description)
+        <b>@Html.DisplayNameFor(model => model.Description)</b>
         <br />
         @Html.DisplayFor(model => model.Description)
         <br />
@@ -34,13 +39,19 @@
         <div class="panel panel-default">
             <div class="panel-heading">Reviews</div>
             <div class="panel-body">
-                @using (Html.BeginForm())
+                @using (Html.BeginForm("Rating"))
                 {
                     @Html.AntiForgeryToken()
                     <div class="form-group">
                         <label for="comment">Add a review:</label>
                         @Html.TextBoxFor(model => model.FilmId, new { style = "display: none;" })
                         @Html.TextArea("Review", "", new { @class = "form-control", @rows = "5" })
+                        <span class="rating">
+                            @for (int i = 1; i <= 10; i++)
+                            {
+                                <span data-value="@(11 - i)" class="star"><input type="hidden" class="rated" name="rated" /></span>
+                            }
+                        </span>
                         <br />
                         <input type="submit" class="btn btn-primary" value="Review">
                     </div>
@@ -54,16 +65,14 @@
                     }
                     @foreach (var item in Model.Review)
                     {
-                        <li class="list-group-item">@Html.DisplayFor(model => item.Description) (@Html.DisplayFor(model => item.DateAdded))</li>
+                        <li class="list-group-item">
+                            @Html.DisplayFor(model => item.Description) (@Html.DisplayFor(model => item.DateAdded))
+                            <span class="label label-default" style="float: right">Rating: ★ @Html.DisplayFor(model => item.ReviewRating)</span>
+                        </li>
                     }
                 </ul>
             </div>
         </div>
-
     </div>
-    <p>
-        @Html.ActionLink("Edit", "Edit", new { id = Model.FilmId }) |
-        @Html.ActionLink("Back to List", "Index")
-    </p>
 </body>
 </html>
