@@ -184,11 +184,20 @@ namespace FilmReview.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "FilmId,GenreId,FilmName,Rating,Description")] Film film)
+        public ActionResult Edit(Film film)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(film).State = EntityState.Modified;
+                var dbFilms = db.Films.FirstOrDefault(p => p.FilmId == film.FilmId);
+                if (dbFilms == null)
+                {
+                    return HttpNotFound();
+                }
+
+                dbFilms.Description = film.Description;
+                dbFilms.FilmName = film.FilmName;
+                dbFilms.GenreId = film.GenreId;
+                dbFilms.Review = film.Review;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
