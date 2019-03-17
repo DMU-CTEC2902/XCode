@@ -32,6 +32,7 @@ namespace FilmReview.Tests.Controllers
             HomeController controller = new HomeController();
 
             // Act
+            //No longer an about page
             ViewResult result = controller.About() as ViewResult;
 
             // Assert
@@ -45,6 +46,7 @@ namespace FilmReview.Tests.Controllers
             HomeController controller = new HomeController();
 
             // Act
+            //no longer a contact page
             ViewResult result = controller.Contact() as ViewResult;
 
             // Assert
