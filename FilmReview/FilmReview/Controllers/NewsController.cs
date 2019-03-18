@@ -12,7 +12,7 @@ namespace FilmReview.Controllers
 {
     public class NewsController : Controller
     {
-        private NewsContext db = new NewsContext();
+        private FilmContext db = new FilmContext();
 
         // GET: News
         public ActionResult Index()
