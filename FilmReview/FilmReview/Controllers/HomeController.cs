@@ -11,7 +11,7 @@ namespace FilmReview.Controllers
 {
     public class HomeController : Controller
     {
-        private NewsContext db = new NewsContext();
+        private FilmContext db = new FilmContext();
 
         public ActionResult Index()
         {
