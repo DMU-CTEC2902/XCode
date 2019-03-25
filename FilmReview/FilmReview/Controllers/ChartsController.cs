@@ -39,7 +39,6 @@ namespace FilmReview.Controllers
             List<Film> LeastPopular = db.Films.OrderBy(x => x.Rating).Take(5).ToList();
             // Add the list to viewdata
             ViewData["LeastPopular"] = LeastPopular;
-            //
 
             return View(db.Films.OrderByDescending(x => x.Rating).Take(5).ToList());
         }

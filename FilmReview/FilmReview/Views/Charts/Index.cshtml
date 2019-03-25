@@ -30,7 +30,6 @@
         <th>@Html.DisplayNameFor(model => model.Rating)</th>
     </tr>
     @foreach (var item in (List<FilmReview.Models.Film>)ViewData["LeastPopular"])
-        //
     {
         <tr>
             <td>@Html.DisplayFor(modelItem => item.FilmName)</td>
