@@ -35,6 +35,11 @@ namespace FilmReview.Controllers
             // Add the dictionary to viewdata
             ViewData["MostReviewed"] = MostReviewed;
 
+            // Order the films by the lowest rating, take the top 5 and add them to the list
+            List<Film> LeastPopular = db.Films.OrderBy(x => x.Rating).Take(5).ToList();
+            // Add the list to viewdata
+            ViewData["LeastPopular"] = LeastPopular;
+
             return View(db.Films.OrderByDescending(x => x.Rating).Take(5).ToList());
         }
     }

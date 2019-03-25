@@ -8,7 +8,6 @@ namespace FilmReview.Models
 {
     public class Actor
     {
-        //
         [Key]
         public virtual int ActorID { get; set; }
 
