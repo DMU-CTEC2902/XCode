@@ -13,10 +13,14 @@ namespace FilmReview.Models
 
         public virtual int FilmId { get; set; }
 
+        [Required]
+        [DataType(DataType.Date)]
         public virtual DateTime DateAdded { get; set; }
 
+        [Display(Name = "Review Rating")]
         public virtual decimal ReviewRating { get; set; }
 
+        [Display(Name = "Review")]
         public virtual string Description { get; set; }
 
         //userid to do
