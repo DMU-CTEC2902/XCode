@@ -11,8 +11,14 @@ namespace FilmReview.Models
         [Key]
         public virtual int DirectorID { get; set; }
 
+        [Required]
+        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 2)]
+        [Display(Name = "Last Name")]
         public virtual string DirectorFirstName { get; set; }
 
+        [Required]
+        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 2)]
+        [Display(Name = "Last Name")]
         public virtual string DirectorLastName { get; set; }
 
         public virtual int ActorID { get; set; }
