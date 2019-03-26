@@ -224,6 +224,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Documentation\Class Diagram\ClassDiagram.PNG" />
+    <Content Include="Documentation\ERD\ERD.PNG" />
     <Content Include="Documentation\Sketches\First Sketches\Film Review Home.png" />
     <Content Include="Documentation\Sketches\First Sketches\Film Review Movie.png" />
     <Content Include="favicon.ico" />
