@@ -161,6 +161,14 @@ namespace FilmReview.Models
             news4.Date = new DateTime(2019, 03, 10);
             context.News.Add(news4);
 
+            //actors
+            Actor actor1 = new Actor();
+            actor1.ActorID = 1;
+            actor1.FilmId = 1;
+            actor1.FirstName = "Will";
+            actor1.LastName = "Smith";
+            context.Actors.Add(actor1);
+
             // Seed
             base.Seed(context);
         }
