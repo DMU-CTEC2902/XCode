@@ -225,6 +225,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Documentation\Class Diagram\ClassDiagram.PNG" />
     <Content Include="Documentation\ERD\ERD.PNG" />
+    <Content Include="Documentation\Sequence Diagram\Sequence Diagram.PNG" />
     <Content Include="Documentation\Sketches\First Sketches\Film Review Home.png" />
     <Content Include="Documentation\Sketches\First Sketches\Film Review Movie.png" />
     <Content Include="favicon.ico" />
@@ -237,6 +238,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Documentation\Class Diagram\Class Diagram.EAP" />
+    <Content Include="Documentation\Sequence Diagram\Sequence Diagram.EAP" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -295,7 +297,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Documentation\Sequence Diagram\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
