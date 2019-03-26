@@ -60,6 +60,15 @@ namespace FilmReview.Models
             film2.Genre = Gen1;
             context.Films.Add(film2);
 
+            Film film3 = new Film();
+            film3.FilmId = 3;
+            film3.GenreId = 5;
+            film3.FilmName = "Barbie in the Pink Shoes";
+            film3.Rating = 1.50M;
+            film3.Description = "A movie made for kids!";
+            film3.Genre = Gen5;
+            context.Films.Add(film3);
+
             // Reviews
             Review review1 = new Review();
             review1.ReviewId = 1;
@@ -98,31 +107,49 @@ namespace FilmReview.Models
             context.Reviews.Add(review4);
 
             Review review5 = new Review();
-            review5.ReviewId = 4;
+            review5.ReviewId = 5;
             review5.FilmId = 2;
             // new DateTime(year, month, day, hour, minute, second); (24-hour clock)
-            review5.DateAdded = new DateTime(2019, 03, 13, 17, 02, 12);
+            review5.DateAdded = new DateTime(2019, 01, 13, 17, 02, 12);
             review5.ReviewRating = 9;
-            review5.Description = "Fines.";
+            review5.Description = "Meh.";
             context.Reviews.Add(review5);
 
             Review review6 = new Review();
-            review6.ReviewId = 5;
+            review6.ReviewId = 6;
             review6.FilmId = 2;
             // new DateTime(year, month, day, hour, minute, second); (24-hour clock)
-            review6.DateAdded = new DateTime(2019, 03, 13, 17, 02, 12);
+            review6.DateAdded = new DateTime(2019, 02, 13, 17, 02, 12);
             review6.ReviewRating = 10;
-            review6.Description = "Fines.";
+            review6.Description = "Fineeeee.";
             context.Reviews.Add(review6);
 
             Review review7 = new Review();
-            review7.ReviewId = 6;
+            review7.ReviewId = 7;
             review7.FilmId = 2;
             // new DateTime(year, month, day, hour, minute, second); (24-hour clock)
-            review7.DateAdded = new DateTime(2019, 03, 13, 17, 02, 12);
+            review7.DateAdded = new DateTime(2018, 03, 13, 17, 02, 12);
             review7.ReviewRating = 5;
-            review7.Description = "Fines.";
+            review7.Description = "Finessz.";
             context.Reviews.Add(review7);
+
+            Review review8 = new Review();
+            review8.ReviewId = 8;
+            review8.FilmId = 3;
+            // new DateTime(year, month, day, hour, minute, second); (24-hour clock)
+            review8.DateAdded = new DateTime(2018, 03, 13, 17, 02, 12);
+            review8.ReviewRating = 1;
+            review8.Description = "Badz.";
+            context.Reviews.Add(review8);
+
+            Review review9 = new Review();
+            review9.ReviewId = 9;
+            review9.FilmId = 3;
+            // new DateTime(year, month, day, hour, minute, second); (24-hour clock)
+            review9.DateAdded = new DateTime(2019, 03, 13, 17, 02, 12);
+            review9.ReviewRating = 2;
+            review9.Description = "Expected better.";
+            context.Reviews.Add(review9);
 
             // News
             News news1 = new News();
@@ -161,7 +188,7 @@ namespace FilmReview.Models
             news4.Date = new DateTime(2019, 03, 10);
             context.News.Add(news4);
 
-            //actors
+            // Actors
             Actor actor1 = new Actor();
             actor1.ActorID = 1;
             actor1.FilmId = 1;
