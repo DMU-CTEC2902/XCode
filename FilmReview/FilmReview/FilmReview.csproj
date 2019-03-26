@@ -228,6 +228,10 @@
     <Content Include="Documentation\Sequence Diagram\Sequence Diagram.PNG" />
     <Content Include="Documentation\Sketches\First Sketches\Film Review Home.png" />
     <Content Include="Documentation\Sketches\First Sketches\Film Review Movie.png" />
+    <Content Include="Documentation\Sketches\Updated Sketches\Film Review Charts.png" />
+    <Content Include="Documentation\Sketches\Updated Sketches\Film Review Films.png" />
+    <Content Include="Documentation\Sketches\Updated Sketches\Film Review Home.png" />
+    <Content Include="Documentation\Sketches\Updated Sketches\Film Review News.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -239,6 +243,10 @@
     </Content>
     <Content Include="Documentation\Class Diagram\Class Diagram.EAP" />
     <Content Include="Documentation\Sequence Diagram\Sequence Diagram.EAP" />
+    <Content Include="Documentation\Sketches\Updated Sketches\Film Review Charts.drawio" />
+    <Content Include="Documentation\Sketches\Updated Sketches\Film Review Films.drawio" />
+    <Content Include="Documentation\Sketches\Updated Sketches\Film Review Home.drawio" />
+    <Content Include="Documentation\Sketches\Updated Sketches\Film Review News.drawio" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
