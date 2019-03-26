@@ -27,5 +27,7 @@ namespace FilmReview.Models
         public DbSet<Review> Reviews { get; set; }
 
         public DbSet<News> News { get; set; }
+
+        public DbSet<Actor> Actors { get; set; }
     }
 }
