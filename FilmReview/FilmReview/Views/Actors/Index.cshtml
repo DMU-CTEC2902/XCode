@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<FilmReview.Models.Actor>
 
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <!DOCTYPE html>
@@ -32,7 +32,9 @@
     @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Film.FilmName)
+                <a href="~/Films/Title/@item.FilmId">
+                    <b>@Html.DisplayFor(modelItem => item.Film.FilmName)</b>
+                </a>
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.FirstName)
