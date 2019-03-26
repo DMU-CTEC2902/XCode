@@ -4,9 +4,16 @@
 }
 
 <div class="jumbotron">
-    <h1>FilmReview Page</h1>
-    <p class="lead">(update in the future)</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+    <h2><img src="~/Images/trophy.png" alt="Top movie" width="50" height="50">Our best rated films<img src="~/Images/trophy.png" alt="Top movie" width="50" height="50"></h2>
+    @foreach (var item in (List<FilmReview.Models.Film>)ViewData["MostPopular"])
+    {
+        <p>
+            <a href="~/Films/Title/@item.FilmId">@Html.DisplayFor(modelItem => item.FilmName)</a>
+            <span class="label label-primary">★ @Html.DisplayFor(modelItem => item.Rating)</span>
+        </p>
+    }
+    <br />
+    @Html.ActionLink("Show all", null, "Films", null, new { @class = "btn btn-default btn-sm" })
 </div>
 
 <div class="row">
