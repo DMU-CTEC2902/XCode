@@ -4,33 +4,16 @@
 }
 
 <div class="jumbotron">
-    <br />
-    <br />
-    <br />
-    <br />
-    <h2>Our best rated films</h2>
-
-
-
-    @{int i = 0;}
+    <h2><img src="~/Images/trophy.png" alt="Top movie" width="50" height="50">Our best rated films<img src="~/Images/trophy.png" alt="Top movie" width="50" height="50"></h2>
     @foreach (var item in (List<FilmReview.Models.Film>)ViewData["MostPopular"])
     {
-        if (i == 0)
-        {
-            <img src="~/Images/trophy.png" alt="Top movie" width="50" height="50">
-        }
-
         <p>
-            @Html.DisplayFor(modelItem => item.FilmName)
+            <a href="~/Films/Title/@item.FilmId">@Html.DisplayFor(modelItem => item.FilmName)</a>
             <span class="label label-primary">★ @Html.DisplayFor(modelItem => item.Rating)</span>
         </p>
-
-        i++;
     }
-
-
     <br />
-    <p></p>
+    @Html.ActionLink("Show all", null, "Films", null, new { @class = "btn btn-default btn-sm" })
 </div>
 
 <div class="row">

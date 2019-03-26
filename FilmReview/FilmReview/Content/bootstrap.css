@@ -6079,6 +6079,7 @@ a.badge:focus {
     .container-fluid .jumbotron {
         padding-right: 60px;
         padding-left: 60px;
+        padding-top: 150px;
     }
 
     .jumbotron h1,
