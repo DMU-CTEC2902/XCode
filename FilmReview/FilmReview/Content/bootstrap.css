@@ -6038,7 +6038,9 @@ a.badge:focus {
     padding-bottom: 30px;
     margin-bottom: 30px;
     color: inherit;
-    background-color: #303030;
+    background-image: url("../Images/banner.jpg");
+    background-size: cover;
+    text-align: center;
 }
 
     .jumbotron h1,

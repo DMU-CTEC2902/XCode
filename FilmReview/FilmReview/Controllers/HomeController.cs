@@ -15,6 +15,11 @@ namespace FilmReview.Controllers
 
         public ActionResult Index()
         {
+            // Order the films by the highest rating, take the top 3 and add them to the list
+            List<Film> MostPopular = db.Films.OrderByDescending(x => x.Rating).Take(3).ToList();
+            // Add the list to viewdata
+            ViewData["MostPopular"] = MostPopular;
+
             return View(db.News.OrderByDescending(x => x.Date).ToList());
         }
     }

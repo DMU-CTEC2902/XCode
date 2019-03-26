@@ -4,9 +4,33 @@
 }
 
 <div class="jumbotron">
-    <h1>FilmReview Page</h1>
-    <p class="lead">(update in the future)</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+    <br />
+    <br />
+    <br />
+    <br />
+    <h2>Our best rated films</h2>
+
+
+
+    @{int i = 0;}
+    @foreach (var item in (List<FilmReview.Models.Film>)ViewData["MostPopular"])
+    {
+        if (i == 0)
+        {
+            <img src="~/Images/trophy.png" alt="Top movie" width="50" height="50">
+        }
+
+        <p>
+            @Html.DisplayFor(modelItem => item.FilmName)
+            <span class="label label-primary">★ @Html.DisplayFor(modelItem => item.Rating)</span>
+        </p>
+
+        i++;
+    }
+
+
+    <br />
+    <p></p>
 </div>
 
 <div class="row">
