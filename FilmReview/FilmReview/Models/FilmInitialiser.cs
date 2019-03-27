@@ -203,6 +203,13 @@ namespace FilmReview.Models
             actor2.LastName = "Lawrence";
             context.Actors.Add(actor2);
 
+            Actor actor3 = new Actor();
+            actor3.ActorID = 3;
+            actor3.FilmId = 3;
+            actor3.FirstName = "Matthew";
+            actor3.LastName = "Dean";
+            context.Actors.Add(actor2);
+
             // Seed
             base.Seed(context);
         }
