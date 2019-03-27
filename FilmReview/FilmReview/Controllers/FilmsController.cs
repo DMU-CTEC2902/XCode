@@ -33,6 +33,12 @@ namespace FilmReview.Controllers
                 .Where(r => r.FilmId == id)
                 .OrderByDescending(x => x.DateAdded).ToList();
 
+            List<Actor> lstActors = db.Actors
+                .Where(r => r.FilmId == id).ToList();
+
+            // Add the list to viewdata
+            ViewData["ActorsForMovie"] = lstActors;
+
             Film film = db.Films.Find(id);
             if (film == null)
             {
