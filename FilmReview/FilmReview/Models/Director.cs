@@ -21,11 +21,12 @@ namespace FilmReview.Models
         [Display(Name = "Last Name")]
         public virtual string DirectorLastName { get; set; }
 
-        public virtual int ActorID { get; set; }
+
+       
 
         public virtual int FilmId { get; set; }
 
-        public virtual Actor Actor { get; set; }
+       
 
         public virtual Film Film { get; set; }
     }

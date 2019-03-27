@@ -39,6 +39,10 @@ namespace FilmReview.Controllers
             // Add the list to viewdata
             ViewData["ActorsForMovie"] = lstActors;
 
+            List<Director> lstDirectors = db.Directors
+                .Where(r => r.FilmId == id).ToList();
+            ViewData["DirectorsForMovie"] = lstDirectors;
+
             Film film = db.Films.Find(id);
             if (film == null)
             {

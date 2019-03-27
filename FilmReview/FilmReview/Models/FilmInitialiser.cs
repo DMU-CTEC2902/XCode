@@ -224,6 +224,13 @@ namespace FilmReview.Models
             actor5.LastName = "Karyo";
             context.Actors.Add(actor5);
 
+            Director director1 = new Director();
+            director1.DirectorID = 1;
+            director1.FilmId = 1;
+            director1.DirectorFirstName = "Stephan";
+            director1.DirectorLastName = "Bimby";
+            context.Directors.Add(director1);
+
             // Seed
             base.Seed(context);
         }

@@ -44,6 +44,15 @@
         }
         <br />
         <br />
+        <b>Directors</b>
+        <br />
+        @foreach (var item in (List<FilmReview.Models.Director>)ViewData["DirectorsForMovie"])
+        {
+            @Html.ActionLink(item.DirectorFirstName + " " + item.DirectorLastName, "Details", "Directors", new { id = item.FilmId }, new { @class = "btn btn-default" })
+            <span> </span>
+        }
+        <br />
+        <br />
 
         <div class="panel panel-default">
             <div class="panel-heading">Reviews</div>

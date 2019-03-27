@@ -29,5 +29,7 @@ namespace FilmReview.Models
         public DbSet<News> News { get; set; }
 
         public DbSet<Actor> Actors { get; set; }
+
+        public System.Data.Entity.DbSet<FilmReview.Models.Director> Directors { get; set; }
     }
 }
