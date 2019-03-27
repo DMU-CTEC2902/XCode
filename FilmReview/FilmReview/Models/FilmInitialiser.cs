@@ -208,7 +208,21 @@ namespace FilmReview.Models
             actor3.FilmId = 3;
             actor3.FirstName = "Matthew";
             actor3.LastName = "Dean";
-            context.Actors.Add(actor2);
+            context.Actors.Add(actor3);
+
+            Actor actor4 = new Actor();
+            actor4.ActorID = 4;
+            actor4.FilmId = 1;
+            actor4.FirstName = "Téa";
+            actor4.LastName = "Leoni";
+            context.Actors.Add(actor4);
+
+            Actor actor5 = new Actor();
+            actor5.ActorID = 5;
+            actor5.FilmId = 1;
+            actor5.FirstName = "Tchéky";
+            actor5.LastName = "Karyo";
+            context.Actors.Add(actor5);
 
             // Seed
             base.Seed(context);
