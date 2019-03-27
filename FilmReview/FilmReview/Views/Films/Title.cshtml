@@ -48,7 +48,7 @@
         <br />
         @foreach (var item in (List<FilmReview.Models.Director>)ViewData["DirectorsForMovie"])
         {
-            @Html.ActionLink(item.DirectorFirstName + " " + item.DirectorLastName, "Details", "Directors", new { id = item.FilmId }, new { @class = "btn btn-default" })
+            @Html.ActionLink(item.DirectorFirstName + " " + item.DirectorLastName, "Details", "Directors", new { id = item.DirectorID }, new { @class = "btn btn-default" })
             <span> </span>
         }
         <br />
