@@ -35,6 +35,14 @@
         @Html.DisplayFor(model => model.Description)
         <br />
         <br />
+        <b>Actors</b>
+        <br />
+        @foreach (var item in (List<FilmReview.Models.Actor>)ViewData["ActorsForMovie"])
+        {
+            @Html.ActionLink(item.FirstName + " " + item.LastName, "Details", "Actors", new { id = item.ActorID }, new { @class = "btn btn-default" })
+        }
+        <br />
+        <br />
 
         <div class="panel panel-default">
             <div class="panel-heading">Reviews</div>
