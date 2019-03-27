@@ -10,7 +10,7 @@ namespace FilmReview.Models
     {
         protected override void Seed(FilmContext context)
         {
-            // Genres
+            // Genres, initalises the database
             Genre Gen1 = new Genre();
             Gen1.GenreId = 1;
             Gen1.Name = "Action";
@@ -41,7 +41,7 @@ namespace FilmReview.Models
             Gen5.Description = "Magical and exotic fantasy worlds";
             context.Genres.Add(Gen5);
 
-            // Films
+            // Films, initialise the database with film records
             Film film1 = new Film();
             film1.FilmId = 1;
             film1.GenreId = 1;
@@ -69,7 +69,7 @@ namespace FilmReview.Models
             film3.Genre = Gen5;
             context.Films.Add(film3);
 
-            // Reviews
+            // Reviews, initialise the database with reviews
             Review review1 = new Review();
             review1.ReviewId = 1;
             review1.FilmId = 1;
@@ -188,7 +188,7 @@ namespace FilmReview.Models
             news4.Date = new DateTime(2019, 03, 10);
             context.News.Add(news4);
 
-            // Actors
+            // Actors, intialise the database with actors
             Actor actor1 = new Actor();
             actor1.ActorID = 1;
             actor1.FilmId = 1;
@@ -223,7 +223,7 @@ namespace FilmReview.Models
             actor5.FirstName = "Tchéky";
             actor5.LastName = "Karyo";
             context.Actors.Add(actor5);
-
+            //Directors, initialise the database with directors
             Director director1 = new Director();
             director1.DirectorID = 1;
             director1.FilmId = 1;
